@@ -12,7 +12,7 @@ import React from "react";
 // import { TelegramIcon, TwitterIcon, DiscordIcon } from "components/icons/Icons";
 import { BsDiscord, BsTelegram } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
-export default function FooterLandingPage() {
+const FooterLandingPage = () => {
   return (
     <div
       style={{
@@ -23,12 +23,16 @@ export default function FooterLandingPage() {
       }}
     >
       <div>© 2023All Rights Reserved By SubQuest</div>
-      <div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
           <BsTelegram cursor="pointer" size={32} />
         </div>
-        <AiFillTwitterCircle cursor="pointer" size={32} />
-        <BsDiscord cursor="pointer" size={32} />
+        <div>
+          <AiFillTwitterCircle cursor="pointer" size={32} />
+        </div>
+        <div>
+          <BsDiscord cursor="pointer" size={32} />
+        </div>
       </div>
       {/* <SectionContainer>
         <Flex
@@ -117,4 +121,6 @@ export default function FooterLandingPage() {
       </SectionContainer> */}
     </div>
   );
-}
+};
+
+export default FooterLandingPage;

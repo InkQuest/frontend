@@ -1,5 +1,6 @@
 import { Layout, Space } from "antd";
 import FooterLandingPage from "components/footer/FooterLandingPage";
+import SQNavbar from "components/navbar";
 const headerStyle = {
   textAlign: "center",
   color: "#fff",
@@ -31,7 +32,9 @@ const { Header, Footer, Sider, Content } = Layout;
 const Default = ({ children }) => {
   return (
     <Layout>
-      <Header>Header</Header>
+      <Header style={{ background: "white" }}>
+        <SQNavbar />
+      </Header>
       <Content>Content</Content>
       <Footer style={{ padding: 0 }}>
         <FooterLandingPage />

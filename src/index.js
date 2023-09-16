@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ConfigProvider as AntDesignProvider } from "antd";
+import { WalletProvider } from "contexts/useWallet";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AntDesignProvider>
-      <App />
+      <WalletProvider>
+        <App />
+      </WalletProvider>
     </AntDesignProvider>
   </React.StrictMode>
 );
