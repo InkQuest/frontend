@@ -35,7 +35,7 @@ const Default = ({ children }) => {
       <Header style={{ background: "white" }}>
         <SQNavbar />
       </Header>
-      <Content>Content</Content>
+      <Content>{children}</Content>
       <Footer style={{ padding: 0 }}>
         <FooterLandingPage />
       </Footer>

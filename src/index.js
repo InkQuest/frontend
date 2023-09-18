@@ -4,15 +4,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ConfigProvider as AntDesignProvider } from "antd";
 import { WalletProvider } from "contexts/useWallet";
+import { BrowserRouter } from "react-router-dom";
+import './assets/scss/style.scss'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AntDesignProvider>
-      <WalletProvider>
-        <App />
-      </WalletProvider>
-    </AntDesignProvider>
+    <BrowserRouter>
+      <AntDesignProvider>
+        <WalletProvider>
+          <App />
+        </WalletProvider>
+      </AntDesignProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
