@@ -36,9 +36,9 @@ const Default = ({ children }) => {
         <SQNavbar />
       </Header>
       <Content>{children}</Content>
-      <Footer style={{ padding: 0 }}>
+      {/* <Footer style={{ padding: 0 }}>
         <FooterLandingPage />
-      </Footer>
+      </Footer> */}
     </Layout>
   );
 };

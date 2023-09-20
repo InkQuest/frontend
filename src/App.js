@@ -7,6 +7,9 @@ import { WsProvider } from "@polkadot/api";
 import { web3Enable } from "@polkadot/extension-dapp";
 import { useEffect } from "react";
 import { useWallet } from "contexts/useWallet";
+import Campaigns from "pages/campains";
+import CreateCampaign from "pages/campains/create";
+import CreateSpace from "pages/spaces/create";
 
 const providerUrl = process.env.REACT_APP_PROVIDER_URL;
 const queryClient = new QueryClient();
@@ -38,6 +41,10 @@ const App = () => {
     <DefaultLayout>
       <Routes>
         <Route path="/" element={<Spaces />} />
+        <Route path="/campaigns" element={<Campaigns />} />
+        <Route path="/spaces" element={<Spaces />} />
+        <Route path="/campaigns/create" element={<CreateCampaign />} />
+        <Route path="/spaces/create" element={<CreateSpace />} />
       </Routes>
     </DefaultLayout>
   );
