@@ -20,47 +20,44 @@ const WalletNotConnected = () => {
       showWalletAddressModal();
     }
   };
-  const supportedWallet = [
-    //   {
-    //     label: "Option 1",
-    //     key: "setting:1",
-    //   },
+
+  const items = [
     {
+      key: "logout",
       label: (
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <a style={{ display: "flex", alignItems: "center" }}>
           <img
             style={{
               width: "32px",
               height: "32px",
             }}
             src={SubWalletLogo}
-            alt="Description of the image"
+            alt="subwallet-logo"
           />
           <div style={{ fontWeight: "bold" }}>SubWallet</div>
-        </div>
+        </a>
       ),
-      key: "subwallet-js",
+      onClick: () => {
+        connectWalletHandler("subwallet-js");
+      },
     },
   ];
+
   return (
-    <Menu
-      onClick={() => {}}
-      items={[
-        {
-          label: "Connect",
-          key: "connect-wallet",
-          children: [
-            {
-              type: "group",
-              children: supportedWallet.map((e) => ({
-                ...e,
-                onClick: () => connectWalletHandler(e?.key),
-              })),
-            },
-          ],
-        },
-      ]}
-    />
+    <Dropdown menu={{ items }} placement="bottomRight">
+      <Button
+        type="primary"
+        style={{
+          display: "flex",
+          height: "40px",
+          marginTop: "8px",
+          alignItems: "center",
+        }}
+      >
+        <BiWallet size="32px" />
+        <div style={{ marginLeft: "8px", fontWeight: "bold" }}>Connect</div>
+      </Button>
+    </Dropdown>
   );
 };
 
@@ -70,16 +67,7 @@ const WalletConnected = () => {
   const items = [
     {
       key: "logout",
-      label: (
-        <a
-          //   target="_blank"
-          //   rel="noopener noreferrer"
-          //   href="https://www.antgroup.com"
-          style={{ fontWeight: "bold", color: "red" }}
-        >
-          Log Out
-        </a>
-      ),
+      label: <div style={{ fontWeight: "bold", color: "red" }}>Log Out</div>,
       onClick: () => {
         logoutAccountHandler();
       },

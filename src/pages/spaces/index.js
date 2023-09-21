@@ -1,8 +1,7 @@
 import DefaultInput from "components/defaultInput";
 
 const Spaces = () => {
-  return <div>dasdmas
-  </div>;
+  return <div>space</div>;
 };
 
 export default Spaces;

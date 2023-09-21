@@ -1,5 +1,6 @@
 import { web3FromSource } from "@polkadot/extension-dapp";
 import { stringToHex } from "@polkadot/util";
+import toast from "react-hot-toast";
 import { APICall } from "utils/api/client";
 
 const { createContext, useContext, useState, useEffect } = require("react");
@@ -12,15 +13,32 @@ export const WalletProvider = ({ children }) => {
   const [walletAccounts, setWalletAccounts] = useState([]);
 
   const updateWalletAccount = async (account) => {
-    localStorage.setItem("localCurrentAccount", JSON.stringify(account));
-    setCurrentAccount(account);
     const { signer } = await web3FromSource(account?.meta?.source);
-    const { signature } = await signer.signRaw({
-      address: account?.address,
-      data: stringToHex("Sign message to authenticate"),
-      type: "bytes",
-    });
-    console.log(await APICall.signLogin(account?.address, signature));
+    try {
+      const { signature } = await signer.signRaw({
+        address: account?.address,
+        data: stringToHex("Hello"),
+        type: "bytes",
+      });
+      const accountAuthenticate = await APICall.signLogin(
+        account?.address,
+        signature
+      );
+      if (accountAuthenticate) {
+        toast.success("Account connected");
+        const accountInfor = {
+          ...accountAuthenticate,
+          ...account,
+        };
+        setCurrentAccount(accountInfor);
+        localStorage.setItem(
+          "localCurrentAccount",
+          JSON.stringify(accountInfor)
+        );
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
   };
   const logoutAccountHandler = () => {
     setCurrentAccount(null);
@@ -29,7 +47,10 @@ export const WalletProvider = ({ children }) => {
 
   const initWallet = () => {
     const accountData = localStorage.getItem("localCurrentAccount");
-    setCurrentAccount(JSON.parse(accountData));
+    if (accountData) {
+      toast.success("Account connected");
+      setCurrentAccount(JSON.parse(accountData));
+    }
   };
 
   useEffect(() => {
