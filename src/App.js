@@ -1,18 +1,16 @@
-import { Routes, Route } from "react-router-dom";
-import Spaces from "./pages/spaces";
-import DefaultLayout from "./layouts/default";
-import { QueryClient } from "react-query";
-import toast from "react-hot-toast";
-import { WsProvider } from "@polkadot/api";
 import { web3Enable } from "@polkadot/extension-dapp";
-import { useEffect } from "react";
 import { useWallet } from "contexts/useWallet";
 import Campaigns from "pages/campains";
 import CreateCampaign from "pages/campains/create";
+import HomePage from "pages/home";
 import CreateSpace from "pages/spaces/create";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
+import { Route, Routes } from "react-router-dom";
+import DefaultLayout from "./layouts/default";
+import Spaces from "./pages/spaces";
 
 const providerUrl = process.env.REACT_APP_PROVIDER_URL;
-const queryClient = new QueryClient();
 
 const App = () => {
   const { updateExtentions } = useWallet();
@@ -40,7 +38,7 @@ const App = () => {
   return (
     <DefaultLayout>
       <Routes>
-        <Route path="/" element={<Spaces />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/campaigns" element={<Campaigns />} />
         <Route path="/spaces" element={<Spaces />} />
         <Route path="/campaigns/create" element={<CreateCampaign />} />

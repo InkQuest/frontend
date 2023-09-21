@@ -1,44 +1,29 @@
-import { Layout, Space } from "antd";
+import { Layout } from "antd";
 import FooterLandingPage from "components/footer/FooterLandingPage";
 import SQNavbar from "components/navbar";
-const headerStyle = {
-  textAlign: "center",
-  color: "#fff",
-  height: 64,
-  paddingInline: 50,
-  lineHeight: "64px",
-  backgroundColor: "#7dbcea",
-};
-const contentStyle = {
-  textAlign: "center",
-  minHeight: 120,
-  lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#108ee9",
-};
-const siderStyle = {
-  textAlign: "center",
-  lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#3ba0e9",
-};
-const footerStyle = {
-  textAlign: "center",
-  color: "#000",
-  //   backgroundColor: "#7dbcea",
-};
+
 const { Header, Footer, Sider, Content } = Layout;
 
 const Default = ({ children }) => {
   return (
-    <Layout>
-      <Header style={{ background: "white" }}>
-        <SQNavbar />
-      </Header>
-      <Content>{children}</Content>
-      {/* <Footer style={{ padding: 0 }}>
-        <FooterLandingPage />
-      </Footer> */}
+    <Layout
+      style={{
+        maxWidth: "1440px",
+        marginLeft: "auto",
+        marginRight: "auto",
+        background: "#FFF",
+      }}
+    >
+      <SQNavbar />
+      <div
+        style={{
+          minHeight: "100vh",
+          paddingTop: "92px",
+        }}
+      >
+        {children}
+      </div>
+      <FooterLandingPage />
     </Layout>
   );
 };

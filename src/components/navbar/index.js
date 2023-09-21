@@ -34,7 +34,15 @@ const HeaderMenu = () => {
   ];
 
   return (
-    <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        marginLeft: "10px",
+      }}
+    >
       <Menu
         onClick={(e) => navigate(e?.key)}
         selectedKeys={[current]}
