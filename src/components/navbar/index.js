@@ -1,11 +1,11 @@
-import { WalletButton } from "components/wallet";
+import { Menu } from "antd";
 import SubQuestLogo from "assets/img/subquest-text-logo.png";
-import { Menu, Space } from "antd";
+import { WalletButton } from "components/wallet";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HeaderMenu = () => {
-  const [current, setCurrent] = useState("campaign");
+  const [current, setCurrent] = useState("campaigns");
   const navigate = useNavigate();
 
   const items = [
@@ -44,7 +44,11 @@ const HeaderMenu = () => {
       }}
     >
       <Menu
-        onClick={(e) => navigate(e?.key)}
+        onClick={(e) => {
+          navigate(e?.key);
+          setCurrent(e?.key);
+        }}
+        style={{ fontWeight: "700" }}
         selectedKeys={[current]}
         mode="horizontal"
         items={items}

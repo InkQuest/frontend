@@ -1,7 +1,13 @@
-import DefaultInput from "components/defaultInput";
+import { SectionContainer } from "components/container";
+import Banner from "./banner";
 
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <Banner />
+      <SectionContainer title="Trending Campaigns"></SectionContainer>
+    </div>
+  );
 };
 
 export default HomePage;

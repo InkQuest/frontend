@@ -9,6 +9,7 @@ import "./assets/scss/style.scss";
 import { Toaster } from "react-hot-toast";
 import customTheme from "theme";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "rc-steps/assets/index.css";
 
 const queryClient = new QueryClient();
 
