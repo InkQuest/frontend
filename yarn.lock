@@ -8781,7 +8781,7 @@ rc-slider@~10.2.1:
     classnames "^2.2.5"
     rc-util "^5.27.0"
 
-rc-steps@~6.0.1:
+rc-steps@^6.0.1, rc-steps@~6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/rc-steps/-/rc-steps-6.0.1.tgz#c2136cd0087733f6d509209a84a5c80dc29a274d"
   integrity sha512-lKHL+Sny0SeHkQKKDJlAjV5oZ8DwCdS2hFhAkIjuQt1/pB81M0cA0ErVFdHq9+jmPmFw1vJB2F5NBzFXLJxV+g==

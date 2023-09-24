@@ -1,4 +1,4 @@
-import { Button, Dropdown, Image, Menu } from "antd";
+import { Button, Dropdown, Image, Menu, Typography } from "antd";
 import { useWallet } from "contexts/useWallet";
 import SubWalletLogo from "assets/img/wallet/SubWalletLogo.png";
 import { web3Accounts, web3Enable } from "@polkadot/extension-dapp";
@@ -77,17 +77,17 @@ const WalletConnected = () => {
   return (
     <Dropdown menu={{ items }} placement="bottomRight">
       <Button
+        size="large"
         style={{
           display: "flex",
-          height: "40px",
           marginTop: "8px",
           alignItems: "center",
         }}
       >
         <BiWallet size="32px" />
-        <a style={{ fontWeight: "bold", marginLeft: "8px" }}>
+        <Typography.Text style={{ fontWeight: "bold", marginLeft: "8px" }}>
           {addressShortener(currentAccount?.address)}
-        </a>
+        </Typography.Text>
       </Button>
     </Dropdown>
   );

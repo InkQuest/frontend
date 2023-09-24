@@ -2,8 +2,6 @@ import { Layout } from "antd";
 import FooterLandingPage from "components/footer/FooterLandingPage";
 import SQNavbar from "components/navbar";
 
-const { Header, Footer, Sider, Content } = Layout;
-
 const Default = ({ children }) => {
   return (
     <Layout
