@@ -10,6 +10,8 @@ const customTheme = {
     Input: {
       colorPrimary: "#EC6F66",
       algorithm: true, // Enable algorithm
+      borderRadius: "4px",
+      controlHeightLG: 48,
     },
     Menu: {
       colorPrimary: "#EC6F66",
@@ -20,6 +22,13 @@ const customTheme = {
       fontSize: "16px",
       colorText: "#EC6F66",
     },
+    DatePicker: {
+      colorPrimary: "#EC6F66",
+      colorIconHover: "#EC6F66",
+      controlHeightLG: 48,
+      fontSize: 16,
+    },
+    Upload: { colorPrimary: "#EC6F66" },
   },
 };
 
